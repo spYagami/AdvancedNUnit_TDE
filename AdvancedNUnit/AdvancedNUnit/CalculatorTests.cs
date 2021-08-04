@@ -19,6 +19,28 @@ namespace AdvancedNUnit
             // Assert
             Assert.That(result, Is.EqualTo(expectedResult), "optional failure message");
         }
+
+        [Test]
+        public void SomeConstraints()
+        {
+            var subject = new Calculator { Num1 = 6 };
+            Assert.That(subject.DivisibleBy3());
+            subject.Num1 = 7;
+            Assert.That(subject.DivisibleBy3(), Is.False);
+            Assert.That(subject.ToString, Does.Contain("Calculator"));
+        }
+
+        [Test]
+        public void StringConstraints()
+        {
+            var subject = new Calculator {Num1 = 2, Num2 = 4};
+            var strResult = subject.ToString();
+            
+            Assert.That(strResult, Does.Contain("Calculator"));
+            Assert.That(strResult, Does.Not.Contain("Alex"));
+            Assert.That(strResult,Is.EqualTo("advancedNUnit.calculator").IgnoreCase);
+            Assert.That(strResult, Is.Not.Empty);
+        }
     }
     
 }
