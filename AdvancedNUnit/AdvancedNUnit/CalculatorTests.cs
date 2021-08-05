@@ -36,6 +36,7 @@ namespace AdvancedNUnit
             var subject = new Calculator {Num1 = 2, Num2 = 4};
             var strResult = subject.ToString();
             
+            Assert.That(strResult, Is.EqualTo("AdvancedNUnit.Calculator"));
             Assert.That(strResult, Does.Contain("Calculator"));
             Assert.That(strResult, Does.Not.Contain("Alex"));
             Assert.That(strResult,Is.EqualTo("advancedNUnit.calculator").IgnoreCase);
